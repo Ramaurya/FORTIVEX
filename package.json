@@ -1,0 +1,17 @@
+{
+  "name": "ai-sales-voice-agent",
+  "version": "1.0.0",
+  "description": "Autonomous AI Sales Voice Agent - MVP (Node.js + Express + Gemini + RAG)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js",
+    "reindex": "node --disable-warning=ExperimentalWarning src/rag.js --reindex"
+  },
+  "engines": { "node": ">=22.13" },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}

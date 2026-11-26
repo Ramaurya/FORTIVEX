@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Sales Voice Agent — CRM Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">◉</span> AI Sales Voice Agent</div>
+    <nav>
+      <a href="/">Live Call</a>
+      <a href="/dashboard.html" class="active">CRM Dashboard</a>
+      <a href="/architecture.html">Architecture</a>
+    </nav>
+  </header>
+
+  <main class="dash">
+    <div class="dash-head">
+      <h2>Business Insights</h2>
+      <div>
+        <button class="btn" id="refreshBtn">↻ Refresh</button>
+        <button class="btn danger-outline" id="resetBtn">Reset demo data</button>
+      </div>
+    </div>
+
+    <section id="kpis" class="kpis"></section>
+
+    <div class="grid-3">
+      <section class="card"><h3>Lead quality</h3><div id="leadDist"></div></section>
+      <section class="card"><h3>Call sentiment</h3><div id="sentDist"></div></section>
+      <section class="card"><h3>Top objections</h3><div id="objections"></div></section>
+    </div>
+
+    <section class="card">
+      <div class="row-between">
+        <h3>AI business insights</h3>
+        <button class="btn primary" id="insightsBtn">✨ Generate insights</button>
+      </div>
+      <ul id="insights" class="insights"><li class="empty">Click "Generate insights" — the AI analyses all call summaries.</li></ul>
+    </section>
+
+    <section class="card">
+      <h3>Leads (CRM)</h3>
+      <div class="table-wrap"><table id="leadsTable"></table></div>
+    </section>
+
+    <section class="card">
+      <h3>Booked appointments</h3>
+      <div class="table-wrap"><table id="apptTable"></table></div>
+    </section>
+
+    <section class="card">
+      <h3>Call history &amp; summaries</h3>
+      <div id="calls"></div>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

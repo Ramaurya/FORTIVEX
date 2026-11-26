@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Sales Voice Agent — Live Call</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">◉</span> AI Sales Voice Agent</div>
+    <nav>
+      <a href="/" class="active">Live Call</a>
+      <a href="/dashboard.html">CRM Dashboard</a>
+      <a href="/architecture.html">Architecture</a>
+    </nav>
+  </header>
+
+  <main class="call-layout">
+    <!-- ============ LEFT: the call ============ -->
+    <section class="card call-card">
+      <div class="call-controls">
+        <label>Language
+          <select id="language">
+            <option value="en-IN">English (India)</option>
+            <option value="hi-IN">हिन्दी (Hindi)</option>
+            <option value="en-US">English (US)</option>
+            <option value="es-ES">Español</option>
+            <option value="fr-FR">Français</option>
+          </select>
+        </label>
+        <label class="toggle"><input type="checkbox" id="voiceMode" checked /> Voice mode</label>
+        <button id="startBtn" class="btn primary">📞 Start Call</button>
+        <button id="endBtn" class="btn danger" disabled>End Call</button>
+      </div>
+
+      <div class="status-row">
+        <div id="orb" class="orb idle"></div>
+        <div>
+          <div id="statusText" class="status-text">Ready. Click "Start Call".</div>
+          <div id="interim" class="interim"></div>
+        </div>
+      </div>
+
+      <div id="transcript" class="transcript">
+        <div class="empty">The conversation will appear here.</div>
+      </div>
+
+      <form id="textForm" class="text-form">
+        <input id="textInput" type="text" placeholder="Type instead of speaking (fallback)…" autocomplete="off" disabled />
+        <button class="btn" id="sendBtn" disabled>Send</button>
+        <button type="button" class="btn" id="micBtn" disabled title="Speak now">🎤</button>
+      </form>
+    </section>
+
+    <!-- ============ RIGHT: live intelligence ============ -->
+    <aside class="side">
+      <section class="card">
+        <h3>Lead (live CRM record)</h3>
+        <div id="leadCard" class="lead-card"><div class="empty">No lead yet.</div></div>
+      </section>
+
+      <section class="card">
+        <h3>AI actions <small>(function calls)</small></h3>
+        <ul id="actions" class="actions"><li class="empty">None yet.</li></ul>
+      </section>
+
+      <section class="card">
+        <h3>Knowledge used <small>(RAG)</small></h3>
+        <ul id="sources" class="sources"><li class="empty">—</li></ul>
+      </section>
+    </aside>
+  </main>
+
+  <!-- ============ Post-call summary ============ -->
+  <div id="summaryModal" class="modal hidden">
+    <div class="modal-box">
+      <h2>Call Summary</h2>
+      <div id="summaryBody"></div>
+      <div class="modal-actions">
+        <a class="btn" href="/dashboard.html">Open Dashboard</a>
+        <button class="btn primary" id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
